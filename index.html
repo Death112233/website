@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Channel</title>
+    <title>My Channel and Blog</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,12 +13,13 @@
             padding: 0;
         }
         .container {
-            margin-top: 20%;
-            padding: 20px;
+            margin: 5% auto;
+            padding: 40px;
+            width: 80%;
+            max-width: 1200px;
             background: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            display: inline-block;
             animation: fadeIn 2s ease-in-out;
         }
         h1 {
@@ -26,17 +27,23 @@
         }
         a {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #25D366;
+            margin: 20px 10px;
+            padding: 15px 30px;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
-            transition: background-color 0.3s;
+            transition: transform 0.3s;
+            animation: colorRotate 4s infinite;
         }
         a:hover {
-            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        a:first-child {
+            background-color: #25D366;
+        }
+        a:last-child {
+            background-color: #4285F4;
         }
         @keyframes fadeIn {
             from {
@@ -46,13 +53,21 @@
                 opacity: 1;
             }
         }
+        @keyframes colorRotate {
+            0% { background-color: #25D366; }
+            25% { background-color: #128C7E; }
+            50% { background-color: #4285F4; }
+            75% { background-color: #0b66c3; }
+            100% { background-color: #25D366; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Channel!</h1>
-        <p>Click the button below to join my WhatsApp channel:</p>
+        <h1>Welcome to My Channel and Blog!</h1>
+        <p>Check out my WhatsApp channel and blog by clicking the buttons below:</p>
         <a href="https://whatsapp.com/channel/0029VaCBM8AKGGG9l6g6Lz0b" target="_blank">Join Channel</a>
+        <a href="https://nowhackactivity.blogspot.com/" target="_blank">Visit Blog</a>
     </div>
 </body>
 </html>
